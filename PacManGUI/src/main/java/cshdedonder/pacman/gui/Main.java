@@ -9,16 +9,20 @@ import java.util.Properties;
 
 public class Main extends Application {
 
-    private static final String RES_FXML = "/main.fxml";
+    private static final String RES_FXML = "/pacman.fxml";
     private static final String RES_PROPERTIES = "/main.properties";
 
     private static final Properties properties = new Properties();
 
     @Override
     public void start(Stage stage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(RES_FXML));
+        Scene scene = new Scene(loader.load());
+        ((PacManController) loader.getController()).setScene(scene);
+
         stage.setTitle(properties.getProperty("title"));
         stage.setResizable(Boolean.getBoolean(properties.getProperty("resizable")));
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource(RES_FXML))));
+        stage.setScene(scene);
         stage.show();
     }
 
