@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="PacManCore" />
         <module name="PacManGUI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="PacManCore" target="11" />
       <module name="PacManGUI" target="11" />
     </bytecodeTargetLevel>
   </component>
