@@ -13,8 +13,8 @@ public class StateDurationConfig {
     @XmlAttribute(required = true, name = "level")
     private int level;
 
-    @XmlElementWrapper(name = "state-durations")
-    @XmlElement(name = "state-duration")
+    @XmlElementWrapper(name = "state-changes")
+    @XmlElement(name = "state-change")
     private List<StateDuration> stateDurations;
 
     public int getLevel() {

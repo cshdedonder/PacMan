@@ -1,10 +1,13 @@
 package cshdedonder.pacman.core.config;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
 import javax.xml.bind.annotation.*;
+import java.io.File;
 import java.util.Set;
 
 @SuppressWarnings("unused")
-@XmlRootElement
+@XmlRootElement(name = "configuration")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BoardConfig {
 
@@ -19,6 +22,8 @@ public class BoardConfig {
     @XmlAnyElement
     private Set<CellGroup> houseGroup;
 
+    private static Class<?>[] classes = {BoardConfig.class, CellGroup.class, LineGroup.class, RectangleGroup.class, SingletonGroup.class};
+
     @XmlElementWrapper(name = "power-pellet-config")
     @XmlElement(name = "power-pellet")
     private Set<PositionConfig> powerPelletPositions;
@@ -32,6 +37,21 @@ public class BoardConfig {
     private Set<LevelConfig> levelConfigs;
 
     public BoardConfig() {
+    }
+
+    @XmlElementWrapper(name = "intersection-config")
+    @XmlElement(name = "intersection")
+    private Set<PositionConfig> intersectionPositions;
+
+    public static BoardConfig getInstance(File file) {
+        try {
+            return (BoardConfig) JAXBContext.newInstance(classes)
+                    .createUnmarshaller()
+                    .unmarshal(file);
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public Set<StateDurationConfig> getStateDurationConfig() {
@@ -80,5 +100,24 @@ public class BoardConfig {
 
     public void setPowerPelletPositions(Set<PositionConfig> powerPelletPositions) {
         this.powerPelletPositions = powerPelletPositions;
+    }
+
+    public static BoardConfig getDefault() {
+        try {
+            return (BoardConfig) JAXBContext.newInstance(classes)
+                    .createUnmarshaller()
+                    .unmarshal(BoardConfig.class.getResourceAsStream("/classic-pacman.xml"));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Set<PositionConfig> getIntersectionPositions() {
+        return intersectionPositions;
+    }
+
+    public void setIntersectionPositions(Set<PositionConfig> intersectionPositions) {
+        this.intersectionPositions = intersectionPositions;
     }
 }

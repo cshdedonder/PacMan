@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!-- CONFIGURATION FILE FOR
+    *** CLASSIC PAC-MAN *** -->
+
+<configuration>
+    <pac-man x="13.5" y="22" lives="3" start="EAST"/>
+
+    <board-config>
+        <line pellets="true">
+            <start x="1" y="0"/>
+            <end x="12" y="0"/>
+        </line>
+        <line pellets="true">
+            <start x="1" y="0"/>
+            <end x="1" y="7"/>
+        </line>
+        <!-- TODO -->
+    </board-config>
+
+    <house-config>
+        <rectangle>
+            <topleft x="11" y="12"/>
+            <bottomright x="17" y="14"/>
+        </rectangle>
+    </house-config>
+
+    <intersection-config>
+        <intersection x="1" y="0"/>
+        <intersection x="6" y="0"/>
+        <intersection x="12" y="0"/>
+        <intersection x="15" y="0"/>
+        <intersection x="21" y="0"/>
+        <intersection x="26" y="0"/>
+        <intersection x="1" y="4"/>
+        <intersection x="6" y="4"/>
+        <intersection x="9" y="4"/>
+        <intersection x="12" y="4"/>
+        <intersection x="15" y="4"/>
+        <intersection x="18" y="4"/>
+        <intersection x="21" y="4"/>
+        <intersection x="26" y="4"/>
+        <!-- TODO -->
+    </intersection-config>
+
+    <power-pellet-config>
+        <power-pellet x="1" y="2"/>
+        <power-pellet x="26" y="2"/>
+        <power-pellet x="1" y="22"/>
+        <power-pellet x="26" y="22"/>
+    </power-pellet-config>
+
+    <state-duration-config>
+        <state-duration level="1">
+            <state-changes>
+                <state-change state="SCATTER" duration="7"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="7"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="-1"/>
+            </state-changes>
+        </state-duration>
+        <state-duration level="2">
+            <state-changes>
+                <state-change state="SCATTER" duration="7"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="7"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="1033"/>
+                <state-change state="SCATTER" duration="0"/>
+                <state-change state="CHASE" duration="-1"/>
+            </state-changes>
+        </state-duration>
+        <state-duration level="5">
+            <state-changes>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="20"/>
+                <state-change state="SCATTER" duration="5"/>
+                <state-change state="CHASE" duration="1037"/>
+                <state-change state="SCATTER" duration="0"/>
+                <state-change state="CHASE" duration="-1"/>
+            </state-changes>
+        </state-duration>
+    </state-duration-config>
+
+    <level-config>
+        <level level="1" fruit="CHERRY" vulnerable="6" warning="5"/>
+        <level level="2" fruit="STRAWBERRY" vulnerable="5" warning="5"/>
+        <level level="3" fruit="ORANGE" vulnerable="4" warning="5"/>
+        <level level="4" fruit="ORANGE" vulnerable="3" warning="5"/>
+        <level level="5" fruit="APPLE" vulnerable="2" warning="5"/>
+        <level level="6" fruit="APPLE" vulnerable="5" warning="5"/>
+        <level level="7" fruit="MELON" vulnerable="2" warning="5"/>
+        <level level="8" fruit="MELON" vulnerable="2" warning="5"/>
+        <level level="9" fruit="GALAXIAN" vulnerable="1" warning="3"/>
+        <level level="10" fruit="GALAXIAN" vulnerable="5" warning="5"/>
+        <level level="11" fruit="BELL" vulnerable="2" warning="5"/>
+        <level level="12" fruit="BELL" vulnerable="1" warning="3"/>
+        <level level="13" fruit="KEY" vulnerable="1" warning="3"/>
+        <level level="14" fruit="KEY" vulnerable="3" warning="5"/>
+        <level level="15" fruit="KEY" vulnerable="1" warning="3"/>
+        <level level="16" fruit="KEY" vulnerable="1" warning="3"/>
+        <level level="17" fruit="KEY" vulnerable="0" warning="0"/>
+        <level level="18" fruit="KEY" vulnerable="1" warning="3"/>
+        <level level="19" fruit="KEY" vulnerable="0" warning="0"/>
+    </level-config>
+</configuration>
