@@ -20,12 +20,15 @@ public class ConnectedCell extends AbstractCell {
     private final Consumer<Integer> scoreConsumer;
     private final Consumer<GameState> stateConsumer;
     private final Supplier<Optional<Cardinal>> cardinalSupplier;
+    private final Pellet pellet;
 
     public ConnectedCell(Position position,
                          Consumer<Integer> scoreConsumer,
                          Consumer<GameState> stateConsumer,
-                         Supplier<Optional<Cardinal>> cardinalSupplier) {
+                         Supplier<Optional<Cardinal>> cardinalSupplier,
+                         Pellet pellet) {
         super(position);
+        this.pellet = pellet;
         cellMap = new EnumMap<>(Cardinal.class);
         this.stateConsumer = stateConsumer;
         this.scoreConsumer = scoreConsumer;
@@ -41,7 +44,8 @@ public class ConnectedCell extends AbstractCell {
     }
 
     public void move(PacMan pacMan) {
-        // TODO
+        scoreConsumer.accept(pellet.getScore());
+        stateConsumer.accept(pellet.getNextState(null));
     }
 
     @Override
